@@ -1,0 +1,15 @@
+<p><%= @results ? "VALID" : "INVALID" %></p>
+<p>Time: <%= @time %></p>
+<p>Score: <%= @score %></p>
+<p>Translation: <%= @translation %></p>
+<p><%= session[:current_user_id] %></p>
+<% session[:games] ? session[:games] = session[:games] + 1 : session[:games] = 1%>
+<p>Number of games played: <%= session[:games] %></p>
+<% session[:tot_score] ? session[:tot_score] = session[:tot_score] + @score : session[:tot_score] = @score %>
+<% session[:avg_score] = session[:tot_score] / session[:games] %>
+<p>Average score: <%= session[:avg_score] %></p>
+
+<a href="/pages/game" class="btn btn-primary">New Game!</a>
+
+
+
